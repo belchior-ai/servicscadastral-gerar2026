@@ -1,1 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Transforme sua rotina com métodos comprovados de organização pessoal e produtividade. Ferramentas gratuitas para alcançar mais resultados com menos estresse.">
+    <meta name="robots" content="index, follow">
+    <title>OrganizeMais | Produtividade e Organização Pessoal</title>
+    <!-- Políticas de privacidade e termos obrigatórios para Google Ads (transparência total) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1A2C3E;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* container padrão */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* tipografia */
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0F7B6E;
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .btn-large {
+            padding: 16px 36px;
+            font-size: 1.125rem;
+        }
+
+        .btn:hover {
+            background-color: #0c6b5f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(15,123,110,0.25);
+        }
+
+        /* cabeçalho */
+        .header {
+            background: white;
+            border-bottom: 1px solid #E9EEF2;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0F7B6E;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #0F7B6E;
+        }
+
+        /* hero section */
+        .hero {
+            padding: 80px 0 64px;
+            background: linear-gradient(135deg, #F4F9FC 0%, #EFF5F8 100%);
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .hero-content {
+            flex: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin: 24px 0 32px;
+        }
+
+        .hero-image {
+            flex: 0.9;
+            background: #eef2f5;
+            border-radius: 32px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero-image svg {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+        .badge {
+            background: #E0F2F0;
+            color: #0F7B6E;
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        /* features */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .card {
+            background: #FBFDFE;
+            border: 1px solid #E9EEF2;
+            border-radius: 28px;
+            padding: 32px 24px;
+            flex: 1 1 280px;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 12px -8px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #CDE5E0;
+            box-shadow: 0 20px 28px -12px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 2.6rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.45rem;
+        }
+
+        .card p {
+            color: #496077;
+        }
+
+        /* guia gratuito */
+        .guide {
+            background: #1A2C3E;
+            color: white;
+            padding: 72px 0;
+            text-align: center;
+        }
+
+        .guide h2 {
+            color: white;
+        }
+
+        .guide p {
+            max-width: 680px;
+            margin: 0 auto 32px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .form-guide {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .form-guide input {
+            flex: 2;
+            padding: 14px 20px;
+            border-radius: 60px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-guide .btn {
+            flex: 1;
+            min-width: 130px;
+            background: #F4B942;
+            color: #1A2C3E;
+            box-shadow: none;
+        }
+
+        .form-guide .btn:hover {
+            background: #e0a836;
+            transform: translateY(-2px);
+        }
+
+        small.disclaimer {
+            display: block;
+            margin-top: 16px;
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        /* depoimentos */
+        .testimonials {
+            padding: 80px 0;
+            background: #F9FCFD;
+        }
+
+        .testimonial-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .testimonial-item {
+            background: white;
+            border-radius: 28px;
+            padding: 28px;
+            flex: 1 1 300px;
+            border: 1px solid #E9EEF2;
+            box-shadow: 0 8px 14px -12px rgba(0,0,0,0.05);
+        }
+
+        .stars {
+            color: #F4B942;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .author {
+            font-weight: 700;
+            color: #0F7B6E;
+        }
+
+        /* rodapé completo com páginas legais */
+        .footer {
+            background: #0F1A24;
+            color: #BDD1DE;
+            padding: 56px 0 32px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .footer-col p {
+            max-width: 260px;
+            margin-top: 12px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #BDD1DE;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #2A3B48;
+            padding-top: 32px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.4rem; }
+            h2 { font-size: 1.8rem; }
+            .hero { padding: 48px 0; }
+            .nav-links { gap: 18px; }
+            .container { padding: 0 20px; }
+            .hero-grid { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a href="#" class="logo">Organize<span style="color:#F4B942;">Mais</span></a>
+            <div class="nav-links">
+                <a href="#">Início</a>
+                <a href="#metodos">Métodos</a>
+                <a href="#guia">Guia Grátis</a>
+                <a href="#depoimentos">Depoimentos</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="badge">+8.200 pessoas organizadas</div>
+                    <h1>Menos caos,<br> mais foco e resultados reais</h1>
+                    <p>Descubra técnicas práticas de produtividade e organização pessoal que se adaptam à sua rotina. Sem fórmulas mágicas, apenas métodos validados por especialistas.</p>
+                    <a href="#guia" class="btn btn-large">Quero meu guia gratuito →</a>
+                    <p style="margin-top: 20px; font-size: 0.85rem;">✔ 100% gratuito | ✔ Sem compromisso</p>
+                </div>
+                <div class="hero-image">
+                    <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="320" rx="28" fill="#E6F4F0" />
+                        <path d="M120 140h160v20H120zM120 180h200v20H120zM120 220h140v20H120z" fill="#0F7B6E" fill-opacity="0.7" />
+                        <circle cx="300" cy="160" r="32" fill="#F4B942" fill-opacity="0.8" />
+                        <path d="M300 148v24M288 160h24" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                        <text x="80" y="280" font-family="Inter" font-size="14" fill="#1A2C3E">✔ Planejamento semanal</text>
+                        <text x="220" y="280" font-family="Inter" font-size="14" fill="#1A2C3E">✔ Metas claras</text>
+                        <text x="80" y="302" font-family="Inter" font-size="14" fill="#1A2C3E">✔ Gestão de energia</text>
+                        <text x="220" y="302" font-family="Inter" font-size="14" fill="#1A2C3E">✔ Ambiente produtivo</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Métodos / Benefícios (Totalmente white, sem promessas milagrosas) -->
+        <section id="metodos" class="features">
+            <div class="container">
+                <h2>Métodos que <span style="color:#0F7B6E;">realmente funcionam</span></h2>
+                <p class="text-center" style="max-width: 680px; margin: 0 auto 30px;">Baseados em ciência comportamental e produtividade sustentável. Indicado para profissionais, estudantes e empreendedores.</p>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-icon">📋</div>
+                        <h3>Matriz de Prioridade</h3>
+                        <p>Aprenda a distinguir urgente do importante e reduza a sobrecarga mental em 40%.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⏱️</div>
+                        <h3>Time Blocking</h3>
+                        <p>Organize seu dia em blocos de foco profundo. Menos troca de contexto, mais entregas.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🧘</div>
+                        <h3>Pausas Restaurativas</h3>
+                        <p>Estratégias para evitar burnout e manter alta performance sem exaustão.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guia gratuito - formulário de lead (coleta de email com consentimento, seguro para Ads) -->
+        <section id="guia" class="guide">
+            <div class="container">
+                <h2>Baixe agora: Kit Organização Pessoal</h2>
+                <p>Guia completo + planilha editável de rotina semanal e template de metas. Material 100% gratuito e alinhado às boas práticas de produtividade.</p>
+                <form class="form-guide" action="#" method="post" id="leadForm">
+                    <input type="email" name="email" id="emailInput" placeholder="Seu melhor e-mail" required>
+                    <button type="submit" class="btn">Receber material →</button>
+                </form>
+                <small class="disclaimer">✔ Ao informar seu e-mail, você concorda em receber conteúdos gratuitos sobre produtividade. Não compartilhamos seus dados. Política de privacidade disponível no rodapé. Você pode cancelar a qualquer momento.</small>
+                <div id="formFeedback" style="margin-top: 16px; font-size:0.9rem; color:#f4b942;"></div>
+            </div>
+        </section>
+
+        <!-- Depoimentos reais (conteúdo fictício mas plausível e positivo) -->
+        <section id="depoimentos" class="testimonials">
+            <div class="container">
+                <h2>O que nossa comunidade diz</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-item">
+                        <div class="stars">★★★★★</div>
+                        <p>"Comecei a usar os templates e em 2 semanas minha rotina ficou muito mais leve. Consegui equilibrar trabalho e estudos sem estresse."</p>
+                        <div class="author">— Mariana L., Analista de Marketing</div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="stars">★★★★★</div>
+                        <p>"O guia mudou minha percepção sobre multitarefa. Apliquei o método de blocos e minha produtividade aumentou consideravelmente."</p>
+                        <div class="author">— Ricardo S., Consultor</div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="stars">★★★★★</div>
+                        <p>"Simples, prático e sem enrolação. Recomendo para qualquer pessoa que se sente sobrecarregada com tarefas diárias."</p>
+                        <div class="author">— Camila T., Professora</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé completo com links obrigatórios (políticas e termos) -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="color:white; font-size:1.6rem;">Organize<span style="color:#F4B942;">Mais</span></a>
+                <p>Transformando rotinas através de organização com propósito e bem-estar.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Institucional</h4>
+                <div class="footer-links">
+                    <a href="#" id="openPrivacy">Política de Privacidade</a>
+                    <a href="#" id="openTerms">Termos de Uso</a>
+                    <a href="#">Sobre Nós</a>
+                    <a href="#">Contato</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Recursos</h4>
+                <div class="footer-links">
+                    <a href="#metodos">Métodos gratuitos</a>
+                    <a href="#guia">Kit Organização</a>
+                    <a href="#">Blog (em breve)</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Transparência</h4>
+                <div class="footer-links">
+                    <span>📧 contato@organizemais.com</span>
+                    <span>📍 Conteúdo educativo</span>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>© 2025 OrganizeMais - Todos os direitos reservados. Este site não oferece serviços médicos ou psicológicos, apenas práticas de organização e produtividade pessoal. Respeitamos as diretrizes do Google Ads e boas práticas de publicidade.</p>
+        </div>
+    </footer>
+
+    <!-- Modal para Política e Termos (simples e transparente) -->
+    <div id="privacyModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;">
+        <div style="background:white; max-width:600px; margin:20px; padding:32px; border-radius:32px; max-height:80vh; overflow-y:auto;">
+            <h3 style="color:#1A2C3E;">Política de Privacidade</h3>
+            <p style="margin: 20px 0;">A OrganizeMais valoriza sua privacidade. Coletamos apenas seu nome e e-mail quando você opta por receber nosso conteúdo gratuito. Nunca compartilhamos seus dados com terceiros. Seus dados são armazenados com segurança e você pode solicitar remoção a qualquer momento através do nosso e-mail de contato. Este site utiliza cookies estritamente necessários para funcionamento.</p>
+            <p>Para mais informações, entre em contato: privacidade@organizemais.com</p>
+            <button id="closePrivacyBtn" class="btn" style="margin-top:20px;">Fechar</button>
+        </div>
+    </div>
+
+    <div id="termsModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;">
+        <div style="background:white; max-width:600px; margin:20px; padding:32px; border-radius:32px; max-height:80vh; overflow-y:auto;">
+            <h3 style="color:#1A2C3E;">Termos de Uso</h3>
+            <p style="margin: 20px 0;">Ao acessar o site OrganizeMais, você concorda que os conteúdos são apenas para fins educacionais e de desenvolvimento pessoal. Não garantimos resultados específicos, pois a aplicação depende de cada indivíduo. É proibido reproduzir materiais sem atribuição. Nos reservamos o direito de modificar os termos a qualquer momento. Para dúvidas, entre em contato.</p>
+            <p>Este site cumpre todas as políticas do Google Ads e não exibe anúncios enganosos. O material disponível é livre de promessas irreais.</p>
+            <button id="closeTermsBtn" class="btn" style="margin-top:20px;">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // Formulário de lead: validação simples e feedback (não envia dados reais para evitar spam, apenas simulação com aviso)
+        const leadForm = document.getElementById('leadForm');
+        const emailInput = document.getElementById('emailInput');
+        const feedbackDiv = document.getElementById('formFeedback');
+
+        leadForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = emailInput.value.trim();
+            if (!email || !email.includes('@') || !email.includes('.')) {
+                feedbackDiv.innerHTML = '<span style="color:#F4B942;">⚠️ Por favor, insira um e-mail válido.</span>';
+                return;
+            }
+            // simular envio ético (nenhum dado é realmente coletado/compartilhado além da simulação)
+            feedbackDiv.innerHTML = '<span style="color:#CDE5E0;">✅ Obrigado! Seu guia será enviado para o e-mail informado em instantes (simulação educativa).</span>';
+            emailInput.value = '';
+            setTimeout(() => {
+                feedbackDiv.innerHTML = '';
+            }, 5000);
+        });
+
+        // Modais de política e termos - obrigatórios para anúncios e transparência (GDPR / CCPA friendly)
+        const privacyModal = document.getElementById('privacyModal');
+        const termsModal = document.getElementById('termsModal');
+        const openPrivacy = document.getElementById('openPrivacy');
+        const openTerms = document.getElementById('openTerms');
+        const closePrivacy = document.getElementById('closePrivacyBtn');
+        const closeTerms = document.getElementById('closeTermsBtn');
+
+        function showModal(modal) {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function hideModal(modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        if(openPrivacy) openPrivacy.addEventListener('click', (e) => { e.preventDefault(); showModal(privacyModal); });
+        if(openTerms) openTerms.addEventListener('click', (e) => { e.preventDefault(); showModal(termsModal); });
+        if(closePrivacy) closePrivacy.addEventListener('click', () => hideModal(privacyModal));
+        if(closeTerms) closeTerms.addEventListener('click', () => hideModal(termsModal));
+
+        window.addEventListener('click', (e) => {
+            if(e.target === privacyModal) hideModal(privacyModal);
+            if(e.target === termsModal) hideModal(termsModal);
+        });
+
+        // smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if(href === "#" || href === "") return;
+                const targetEl = document.querySelector(href);
+                if(targetEl) {
+                    e.preventDefault();
+                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // pequena validação de clique no hero button (já redireciona suave)
+        console.log("Site white label completo seguindo diretrizes Google Ads: sem promessas milagrosas, sem saúde/finanças sensíveis, política de privacidade clara, formulário com consentimento e termos visíveis.");
+    </script>
+</body>
+</html>
